@@ -9,8 +9,8 @@ const Login = () => {
   const [emailId, setEmailId] = useState("salman@example.com");
   const [password, setPassword] = useState("Salman@123");
   const [error, setError] = useState("");
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
@@ -22,12 +22,11 @@ const Login = () => {
         },
         { withCredentials: true }
       );
-      dispatch(addUser(res.data))
-      navigate("/")
-
+      dispatch(addUser(res?.data));
+      navigate("/");
     } catch (error) {
       if (error.response) {
-        setError(error.response.data);
+        setError(error?.response?.data || "something went wrong");
       }
     }
   };
@@ -59,9 +58,7 @@ const Login = () => {
               />
             </fieldset>
           </label>
-          <div>
-            <p className="text-red-300 pl-2 text-[12px]">{error}</p>
-          </div>
+          <p className="text-red-300 pl-2 text-[12px]">{error}</p>
           <div className="card-actions justify-center py-4">
             <button className="btn btn-primary" onClick={handleLogin}>
               Login
