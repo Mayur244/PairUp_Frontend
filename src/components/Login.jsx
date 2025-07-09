@@ -27,6 +27,8 @@ const Login = () => {
     } catch (error) {
       if (error.response) {
         setError(error?.response?.data || "something went wrong");
+      }else{
+        navigate("/error")
       }
     }
   };

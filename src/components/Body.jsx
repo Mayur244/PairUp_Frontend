@@ -15,6 +15,7 @@ const Body = () => {
 
   const fetch = async () => {
     try {
+      if(userData) return;
       const res = await axios.get(BASE_URL + "/profile/view", {
         withCredentials: true,
       });
@@ -23,14 +24,14 @@ const Body = () => {
     } catch (error) {
       if (error?.status === 401) {
         navigate("/login");
+      }else{
+        navigate("/error")
       }
     }
   };
 
   useEffect(() => {
-    if (!userData) {
       fetch();
-    }
   },[])
   
   return (
