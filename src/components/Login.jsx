@@ -6,29 +6,31 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
-  const [emailId, setEmailId] = useState("salman@example.com");
-  const [password, setPassword] = useState("Salman@123");
-  const [error, setError] = useState("");
+  const [emailId, setEmailId] = useState("kishan@example.com");
+  const [password, setPassword] = useState("Kishan@123");
+  const [error, setError] = useState(null);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogin = async () => {
+    setError(null); 
+
     try {
       const res = await axios.post(
         BASE_URL + "/login",
-        {
-          emailId,
-          password,
-        },
+        { emailId, password },
         { withCredentials: true }
       );
-      dispatch(addUser(res?.data));
-      navigate("/");
+
+      dispatch(addUser(res?.data)); 
+
+      navigate("/", { state: { showToast: true } });
     } catch (error) {
       if (error.response) {
-        setError(error?.response?.data || "something went wrong");
-      }else{
-        navigate("/error")
+        setError(error?.response?.data || "Something went wrong");
+      } else {
+        navigate("/error");
       }
     }
   };
@@ -38,6 +40,7 @@ const Login = () => {
       <div className="card bg-base-300 w-96 shadow-sm">
         <div className="card-body">
           <h2 className="card-title justify-center">Login</h2>
+
           <label className="pl-2">
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Email ID</legend>
@@ -49,18 +52,23 @@ const Login = () => {
               />
             </fieldset>
           </label>
+
           <label className="pl-2">
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Password</legend>
               <input
-                type="text"
+                type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="input"
               />
             </fieldset>
           </label>
-          <p className="text-red-300 pl-2 text-[12px]">{error}</p>
+
+          {error && (
+            <p className="text-red-300 pl-2 text-[12px]">{error}</p>
+          )}
+
           <div className="card-actions justify-center py-4">
             <button className="btn btn-primary" onClick={handleLogin}>
               Login
