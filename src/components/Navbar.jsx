@@ -69,6 +69,9 @@ const Navbar = () => {
                   <Link to={"/connections"}>Connections</Link>
                 </li>
                 <li>
+                  <Link to={"/requests"}>Requests</Link>
+                </li>
+                <li>
                   <a onClick={handleLogout}>Logout</a>
                 </li>
               </ul>
@@ -76,7 +79,7 @@ const Navbar = () => {
           </div>
         )}
       </div>
-      {showToast && <div className="toast toast-top toast-center">
+      {showToast && <div className="toast toast-top toast-center my-15">
         <div className="alert alert-success bg-red-500 text-black font-normal border border-red-500">
           <span>Logged out successfully.</span>
         </div>

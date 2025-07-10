@@ -8,7 +8,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 const Feed = () => {
   const feed = useSelector((store) => store.feed);
-  console.log("FEEEEEEED :", feed)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -22,7 +21,6 @@ const Feed = () => {
         withCredentials: true,
       });
       dispatch(addFeed(res?.data?.data));
-      console.log("feed :", res?.data?.data)
     } catch (error) {
       if (error) {
         navigate("/error");
@@ -44,7 +42,7 @@ const Feed = () => {
   return (
     <>
       {showToast && (
-        <div className="toast toast-top toast-center">
+        <div className="toast toast-top toast-center my-15 z-50">
           <div className="alert alert-success">
             <span>Logged in successfully.</span>
           </div>

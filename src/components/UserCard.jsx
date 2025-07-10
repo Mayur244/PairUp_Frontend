@@ -24,13 +24,13 @@ const UserCard = ({ user }) => {
 
   return (
     <div className="min-h-screen">
-      <div className="flex justify-center my-25">
+      <div className="flex justify-center mt-35">
       <div
-        className={`card bg-base-300 w-80 h-140 transition-shadow duration-300 ${handleCardShadow()}`}
+        className={`card bg-base-300 w-75 transition-shadow duration-300 ${handleCardShadow()}`}
       >
         {photoUrl && (
           <figure>
-            <img src={photoUrl} alt="User" />
+            <img className="object-fill h-80 w-75" src={photoUrl} alt="User" />
           </figure>
         )}
         <div className="card-body">
@@ -75,3 +75,4 @@ const UserCard = ({ user }) => {
 };
 
 export default UserCard;
+

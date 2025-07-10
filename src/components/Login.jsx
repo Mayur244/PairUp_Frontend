@@ -24,7 +24,6 @@ const Login = () => {
       );
 
       dispatch(addUser(res?.data)); 
-      console.log("LOGIN :", res.data)
 
       navigate("/", { state: { showToast: true } });
     } catch (error) {
