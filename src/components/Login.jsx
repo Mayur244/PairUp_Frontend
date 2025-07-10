@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
-  const [emailId, setEmailId] = useState("kishan@example.com");
-  const [password, setPassword] = useState("Kishan@123");
+  const [emailId, setEmailId] = useState("mayur@example.com");
+  const [password, setPassword] = useState("Mayur@123");
   const [error, setError] = useState(null);
 
   const dispatch = useDispatch();
@@ -24,6 +24,7 @@ const Login = () => {
       );
 
       dispatch(addUser(res?.data)); 
+      console.log("LOGIN :", res.data)
 
       navigate("/", { state: { showToast: true } });
     } catch (error) {
@@ -36,7 +37,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center my-20">
+    <div className="min-h-screen mt-35">
+      <div className="flex justify-center">
       <div className="card bg-base-300 w-96 shadow-sm">
         <div className="card-body">
           <h2 className="card-title justify-center">Login</h2>
@@ -76,6 +78,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

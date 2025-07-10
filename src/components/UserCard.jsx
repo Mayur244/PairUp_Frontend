@@ -23,9 +23,10 @@ const UserCard = ({ user }) => {
   };
 
   return (
-    <div className="flex justify-center mt-8">
+    <div className="min-h-screen">
+      <div className="flex justify-center my-25">
       <div
-        className={`card bg-base-300 w-80 transition-shadow duration-300 ${handleCardShadow()}`}
+        className={`card bg-base-300 w-80 h-140 transition-shadow duration-300 ${handleCardShadow()}`}
       >
         {photoUrl && (
           <figure>
@@ -68,6 +69,7 @@ const UserCard = ({ user }) => {
           )}
         </div>
       </div>
+    </div>
     </div>
   );
 };

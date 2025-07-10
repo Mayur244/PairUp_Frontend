@@ -8,6 +8,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 const Feed = () => {
   const feed = useSelector((store) => store.feed);
+  console.log("FEEEEEEED :", feed)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,6 +22,7 @@ const Feed = () => {
         withCredentials: true,
       });
       dispatch(addFeed(res?.data?.data));
+      console.log("feed :", res?.data?.data)
     } catch (error) {
       if (error) {
         navigate("/error");
@@ -51,7 +53,7 @@ const Feed = () => {
 
       {feed && (
         <div>
-          <UserCard user={feed[7]} />
+          <UserCard user={feed[0]} />
         </div>
       )}
     </>

@@ -41,8 +41,8 @@ const EditProfile = ({ user }) => {
   return (
     <>
       <div className="flex justify-evenly">
-        <div className="flex justify-center my-20">
-          <div className="card bg-base-300 w-110 shadow-sm">
+        <div className="flex justify-center">
+          <div className="card bg-base-300 w-110 shadow-sm my-25">
             <div className="card-body">
               <h2 className="card-title justify-center">Edit Profile</h2>
               <label className="pl-4">
@@ -140,13 +140,13 @@ const EditProfile = ({ user }) => {
             </div>
           </div>
         </div>
-        <div className="my-13">
+        <div>
           <UserCard
             user={{ firstName, lastName, age, gender, about, photoUrl }}
           />
         </div>
       </div>
-      {showToast && <div className="toast toast-top toast-center">
+      {showToast && <div className="toast toast-top toast-center my-18">
         <div className="alert alert-success">
           <span>Profile saved successfully.</span>
         </div>
