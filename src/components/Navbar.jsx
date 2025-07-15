@@ -34,19 +34,19 @@ const Navbar = () => {
       <div className="navbar bg-base-300 shadow-sm fixed top-0 z-24">
         <div className="flex-1">
           <Link to={"/"} className="btn btn-ghost text-xl">
-            DevConnect❤️
+            DevConnect
           </Link>
         </div>
         {user && (
-          <div className="flex gap-2 items-center">
+          <div className="flex md:gap-2 items-center">
             <div>
-              <p className="">Welcome, {user?.firstName}</p>
+              <p className="md:text-[16px] text-[12px]">Welcome, {user?.firstName}</p>
             </div>
             <div className="dropdown dropdown-end">
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost btn-circle avatar mx-5"
+                className="btn btn-ghost btn-circle avatar mx-2 md:mx-5"
               >
                 <div className="w-10 rounded-full">
                   <img

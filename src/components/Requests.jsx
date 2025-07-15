@@ -44,13 +44,11 @@ const Requests = () => {
 
   if (requests.length === 0)
     return (
-      <div className="my-30 min-h-screen">
+     <div className="my-10 min-h-screen flex flex-col items-center justify-center px-4">
         <h2 className="text-center font-bold text-xl">No requests found</h2>
-        <div className="flex justify-center py-4">
-          <Link to={"/"}>
-            <button className="btn btn-active py-6 px-8">Back to feed</button>
-          </Link>
-        </div>
+        <Link to="/" className="mt-4">
+          <button className="btn btn-active px-6">Back to feed</button>
+        </Link>
       </div>
     );
 
@@ -58,7 +56,7 @@ const Requests = () => {
     requests && (
       <div className="min-h-screen my-25">
         <div className="text-center">
-          <h1 className="text-2xl font-bold">Request received</h1>
+          <h1 className="md:text-3xl text-xl font-bold">Request received</h1>
         </div>
         <div className="my-8">
           {requests.map((request) => {
@@ -66,24 +64,24 @@ const Requests = () => {
               request.fromUserId;
             return (
               <div key={_id} className="flex justify-center py-2">
-                <ul className="list bg-base-300 w-180 rounded-box shadow-md">
+                <ul className="list bg-base-300 h-22 md:h-30 w-90 md:w-180 rounded-box shadow-md">
                   <div className="m-1">
-                    <div className="list-row flex items-center">
-                      <div>
+                    <div className="list-row h-20 md:h-30 w-90 md:w-180 flex  items-center">
+                      <div className="h-20 mt-5 md:mt-0 w-60 md:h-20 md:w-35">
                         <img
-                          className="rounded-full h-35 w-30 object-cover"
+                          className="h-15 w-50 md:h-20 md:w-20 rounded-full object-cover"
                           src={photoUrl}
                         />
                       </div>
-                      <div>
-                        <div className="text-lg h-10">
+                      <div className="h-20 md:h-45 w-80 md:w-180 mt-10 md:mt-25">
+                        <div className="md:text-lg md:h-8 w-18 md:w-35 text-[12px]">
                           {firstName + " " + lastName}
                         </div>
-                        <p className="list-col-wrap text-sm">{about}</p>
+                        <p className="hidden md:block">{about}</p>
                       </div>
                       <div className="flex">
-                          <button onClick={() => reviewrequests("accepted", request._id)} className="btn btn-primary w-20 ">Accept</button>
-                          <button onClick={() => reviewrequests("rejected", request._id)} className="btn btn-secondary ml-4 w-20">
+                          <button onClick={() => reviewrequests("accepted", request._id)} className="btn btn-primary w-20 h-8 md:h-10 md:w-20 text-[9px] md:text-sm ">Accept</button>
+                          <button onClick={() => reviewrequests("rejected", request._id)} className="btn btn-secondary w-20 h-8 md:h-10 ml-4 md:mx-2 md:w-20 text-[9px] md:text-sm">
                             Reject
                           </button>
                         </div>

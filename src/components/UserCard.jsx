@@ -55,7 +55,7 @@ const UserCard = ({ user }) => {
           {photoUrl ? (
             <figure>
               <img
-                className="object-fill h-80 w-75"
+                className="object-cover md:object-fill h-80 w-75"
                 src={photoUrl}
                 alt="User"
               />
