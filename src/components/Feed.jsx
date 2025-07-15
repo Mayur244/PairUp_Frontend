@@ -37,7 +37,17 @@ const Feed = () => {
         setShowToast(false);
       }, 2000);
     }
+    window.history.replaceState({}, document.title);
   }, [location.state]);
+
+  if (!feed) return;
+
+  if (feed.length === 0)
+    return (
+      <div className="my-30 min-h-screen">
+        <h2 className="text-center font-bold text-xl">No more users</h2>
+      </div>
+    );
 
   return (
     <>
@@ -50,9 +60,7 @@ const Feed = () => {
       )}
 
       {feed && (
-        <div>
-          <UserCard user={feed[0]} />
-        </div>
+        <UserCard user={feed[0]} />
       )}
     </>
   );

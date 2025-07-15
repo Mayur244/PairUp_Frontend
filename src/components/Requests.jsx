@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { addRequests } from "../utils/requestSlice";
+import { addRequests, removeRequests } from "../utils/requestSlice";
 import { Link, useNavigate } from "react-router-dom";
 
 const Requests = () => {
@@ -10,6 +10,17 @@ const Requests = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate()
+
+  const reviewrequests = async (status, _id) => {
+     try {
+      const res = await axios.post(`${BASE_URL}/request/review/${status}/${_id}`, {}, {withCredentials:true})
+      dispatch(removeRequests(_id));
+     } catch (error) {
+      if (error) {
+        navigate("/error")
+      }
+     }
+  }
 
   const fetchRequests = async () => {
     try {
@@ -71,8 +82,8 @@ const Requests = () => {
                         <p className="list-col-wrap text-sm">{about}</p>
                       </div>
                       <div className="flex">
-                          <button className="btn btn-primary w-20 ">Accept</button>
-                          <button className="btn btn-secondary ml-4 w-20">
+                          <button onClick={() => reviewrequests("accepted", request._id)} className="btn btn-primary w-20 ">Accept</button>
+                          <button onClick={() => reviewrequests("rejected", request._id)} className="btn btn-secondary ml-4 w-20">
                             Reject
                           </button>
                         </div>

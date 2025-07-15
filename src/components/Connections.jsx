@@ -55,7 +55,7 @@ const Connections = () => {
                       <li className="list-row flex items-center">
                         <div>
                           <img
-                            className="rounded-xl h-35 w-80 object-cover"
+                            className="rounded-xl h-35 w-40 object-cover"
                             src={photoUrl}
                           />
                         </div>
