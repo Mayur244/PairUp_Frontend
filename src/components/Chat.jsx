@@ -78,8 +78,14 @@ const Chat = () => {
         <h1 className="p-5 border-b border-gray-600 text-center font-bold text-lg">
           Chat
         </h1>
-        <div className="flex-1 overflow-y-auto p-5">
-          {(messages || []).map((msg, index) => {
+        <div className="flex-1 min-h-90 md:min-h-100 overflow-y-auto p-5">
+          {messages.length === 0 && (
+            <div className="text-center text-gray-400 mt-10">
+              No messages yet, start the conversation!
+            </div>
+          )}
+
+          {messages.map((msg, index) => {
             const isMe =
               msg.from === userId ||
               msg.from?._id === userId ||
@@ -93,18 +99,14 @@ const Chat = () => {
                 <div
                   className={
                     "chat-bubble " +
-                    (isMe
-                      ? "bg-blue-600 text-white"
-                      : "bg-gray-700 text-white")
+                    (isMe ? "bg-blue-600 text-white" : "bg-gray-700 text-white")
                   }
                 >
                   {msg?.message}
                 </div>
                 <div className="chat-header">
                   {msg?.firstName}
-                  <span
-                    style={{ marginLeft: 8, fontSize: 12, color: "gray" }}
-                  >
+                  <span style={{ marginLeft: 8, fontSize: 12, color: "gray" }}>
                     {formatTime(msg.createdAt)}
                   </span>
                 </div>
