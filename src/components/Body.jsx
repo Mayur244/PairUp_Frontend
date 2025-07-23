@@ -35,11 +35,11 @@ const Body = () => {
   },[])
   
   return (
-    <>
+    <div className="bg-gradient-to-r from-purple-500 to-pink-500">
       <Navbar />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 };
 

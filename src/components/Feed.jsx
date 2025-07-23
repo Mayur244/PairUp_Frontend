@@ -60,7 +60,9 @@ const Feed = () => {
       )}
 
       {feed && (
-        <UserCard user={feed[0]} />
+        <div className="bg-contain bg-center bg-[url(https://media.istockphoto.com/id/1199136527/vector/bright-blue-abstract-neon-arrows-tech-sci-fi-background.jpg?s=612x612&w=0&k=20&c=bV54z8pkg8h_E0vOox5KzcwRd6S-86HhLqoOV04d6UM=)]">
+          <UserCard user={feed[0]} />
+        </div>
       )}
     </>
   );

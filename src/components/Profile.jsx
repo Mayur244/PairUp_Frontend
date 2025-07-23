@@ -7,7 +7,7 @@ const Profile = () => {
   const  user = useSelector((store) => store.user);
 
   return user && (
-    <div>
+    <div className='bg-gradient-to-r from-purple-500 to-pink-500'>
       <EditProfile user={user} />
     </div>
   )

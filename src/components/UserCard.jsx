@@ -35,10 +35,10 @@ const UserCard = ({ user }) => {
   const handleCardShadow = () => {
     switch (hoverButton) {
       case "ignored": {
-        return "shadow-lg shadow-indigo-500/50";
+        return "shadow-lg shadow-indigo-500";
       }
       case "interested": {
-        return "shadow-lg shadow-pink-500/50";
+        return "shadow-lg shadow-pink-500";
       }
       default: {
         return "shadow-lg";
@@ -48,9 +48,9 @@ const UserCard = ({ user }) => {
 
   return (
     <div className="min-h-screen">
-      <div className="flex justify-center mt-35">
+      <div className="flex justify-center">
         <div
-          className={`card bg-base-300 w-75 transition-shadow duration-300 ${handleCardShadow()}`}
+          className={`card bg-base-300 w-75 transition-shadow duration-300 ${handleCardShadow()} my-30`}
         >
           {photoUrl ? (
             <figure>

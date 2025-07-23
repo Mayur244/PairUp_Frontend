@@ -31,7 +31,7 @@ const Connections = () => {
 
   if (connections.length === 0)
     return (
-      <div className="my-10 min-h-screen flex flex-col items-center justify-center px-4">
+      <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-gradient-to-r from-purple-500 to-pink-500">
         <h2 className="text-center font-bold text-xl">No connections found</h2>
         <Link to="/" className="mt-4">
           <button className="btn btn-active px-6">Back to feed</button>
@@ -40,7 +40,7 @@ const Connections = () => {
     );
 
   return (
-    <div className="min-h-screen py-8 px-20 sm:px-40 md:px-40 2xl:px-110">
+    <div className="min-h-screen py-8 px-20 sm:px-40 md:px-40 2xl:px-110 bg-gradient-to-r from-purple-500 to-pink-500">
       <div className="text-center mb-8">
         <h1 className="text-xl mt-15 md:text-3xl font-bold">
           Your Connections

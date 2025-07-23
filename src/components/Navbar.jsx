@@ -31,7 +31,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar bg-base-300 shadow-sm fixed top-0 z-24">
+      <div className="navbar shadow-lg fixed top-0 bg-base-300 z-25">
         <div className="flex-1">
           <Link to={"/"} className="btn btn-ghost text-xl">
             <span>🫸PairUp🫷</span>

@@ -73,8 +73,8 @@ const Chat = () => {
   }
 
   return (
-    <div className="w-full flex items-center justify-center bg-base-200 py-8 px-2">
-      <div className="max-w-xl w-full border border-gray-600 max-h-[80vh] flex flex-col bg-base-200 rounded-lg shadow-lg overflow-hidden mt-10">
+    <div className="w-full flex items-center justify-center py-15 px-2">
+      <div className="max-w-xl w-full border border-gray-600 max-h-[80vh] flex flex-col bg-base-100 rounded-lg shadow-lg overflow-hidden mt-10">
         <h1 className="p-5 border-b border-gray-600 text-center font-bold text-lg">
           Chat
         </h1>
@@ -116,7 +116,7 @@ const Chat = () => {
           })}
           <div ref={messagesEndRef} />
         </div>
-        <div className="p-5 border-t border-gray-600 flex items-center gap-2 bg-base-300">
+        <div className="p-5 border-t border-gray-600 flex items-center gap-2 bg-base-100">
           <input
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
